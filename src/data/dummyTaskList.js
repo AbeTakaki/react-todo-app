@@ -1,4 +1,4 @@
-export const dummyTask = [
+export const dummyTaskList = [
   {
     id: 1,
     title: "reactの勉強",
