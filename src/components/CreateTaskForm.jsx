@@ -5,7 +5,7 @@ export function CreateTaskForm({ onSubmit }) {
   const inputRef = useRef(null);
 
   const handleSubmit = (e) => {
-    e.preventDefualt();
+    e.preventDefault();
     if (!inputRef.current) {
       return;
     }
