@@ -1,8 +1,13 @@
 import { createBrowserRouter, Link, Outlet, RouterProvider } from "react-router-dom";
+import { AppLayout } from "./components/AppLayout.jsx";
 
 const router = createBrowserRouter([
   {
-    element: <Outlet />,
+    element: (
+      <AppLayout>
+        <Outlet />
+      </AppLayout>
+    ),
     children: [
       {
         // タスク一覧画面
