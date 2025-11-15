@@ -27,9 +27,28 @@ export function useTasks() {
     });
   };
 
+  // ゴミ箱のタスク一覧
+  const trashedTaskList = taskList.filter(({ status }) => status === "trashed");
+  // タスクを削除する
+  const deleteTask = (id) => {
+    setTaskList((prevTaskList) => {
+      return prevTaskList.filter((task) => task.id !== id);
+    });
+  };
+
+  // ゴミ箱のタスクをすべて削除する
+  const deleteAllTrashedTasks = () => {
+    setTaskList((prevTaskList) => {
+      return prevTaskList.filter((task) => task.status !== "trashed");
+    });
+  };
+
   return {
     activeTaskLList,
     createTask,
     updateTask,
+    trashedTaskList,
+    deleteTask,
+    deleteAllTrashedTasks,
   };
 }
