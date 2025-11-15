@@ -4,7 +4,7 @@ export function useTasks() {
   // ローカルストレージを利用してタスク一覧の状態を管理
   const [taskList, setTaskList] = useLocalStorageState("taskList", []);
 
-  const activeTaskLList = taskList.filter(({ status }) => status !== "trashed");
+  const activeTaskList = taskList.filter(({ status }) => status !== "trashed");
 
   // 新しいタスクを追加する関数
   const createTask = (title) => {
@@ -19,10 +19,10 @@ export function useTasks() {
   };
 
   // 既存のタスクを更新する関数
-  const updateTask = (id, updateTask) => {
+  const updateTask = (id, updatedTask) => {
     setTaskList((prevTaskList) => {
       return prevTaskList.map((task) =>
-        task.id === id ? { ...task, ...updateTask } : task
+        task.id === id ? { ...task, ...updatedTask } : task
       );
     });
   };
@@ -44,7 +44,7 @@ export function useTasks() {
   };
 
   return {
-    activeTaskLList,
+    activeTaskList,
     createTask,
     updateTask,
     trashedTaskList,

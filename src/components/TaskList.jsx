@@ -17,7 +17,9 @@ export function TaskList () {
         {activeTaskList.length === 0 ? (
           <p className='text-center text-sm'>タスクがありません</p>
         ) : (
-          activeTaskList.map((task) => <TaskItem key={task.id} task={task} onChange={updateTask} />)
+          activeTaskList.map((task) => (
+             <TaskItem key={task.id} task={task} onChange={updateTask} />
+          ))
         )}
       </div>
     </div>
